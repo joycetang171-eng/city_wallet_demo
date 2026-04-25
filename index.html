@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generative City Wallet</title>
+    <link rel="stylesheet" href="./styles.css?v=2" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <main>
+        <section class="product-hero">
+          <section class="wallet-column featured-wallet" id="wallet">
+            <div class="section-heading compact">
+              <p class="eyebrow">Live city wallet</p>
+              <h2>Your best local offer, right now.</h2>
+            </div>
+            <div class="phone-frame">
+              <div class="phone-topbar">
+                <span>09:41</span>
+                <span>City Wallet</span>
+                <span>5G</span>
+              </div>
+
+              <div class="wallet-notification" id="notificationCard"></div>
+
+              <div class="offer-card" id="offerCard">
+                <div class="offer-header">
+                  <p class="offer-eyebrow" id="offerMood"></p>
+                  <span class="offer-chip" id="offerExpiry"></span>
+                </div>
+                <div class="offer-brand-row">
+                  <strong id="offerMerchant"></strong>
+                  <span class="value-badge" id="offerValue"></span>
+                </div>
+                <h3 id="offerHeadline"></h3>
+                <p class="offer-description" id="offerDescription"></p>
+                <div class="claim-strip">
+                  <div>
+                    <div>
+                      <span>Distance</span>
+                      <strong id="offerDistanceDetail"></strong>
+                    </div>
+                  </div>
+                  <div>
+                    <span>Status</span>
+                    <strong id="walletStatus">Offer generated</strong>
+                  </div>
+                </div>
+
+                <div class="offer-reason" id="offerReason"></div>
+
+                <div class="claim-banner">
+                  <span class="claim-label">How to claim</span>
+                  <p>
+                    Accept the offer now. The wallet instantly issues a dynamic
+                    token for merchant scan or automatic cashback validation.
+                  </p>
+                </div>
+
+                <div class="offer-actions">
+                  <button type="button" class="secondary" id="declineButton">Dismiss</button>
+                  <button type="button" class="primary" id="acceptButton">Accept offer</button>
+                </div>
+              </div>
+
+              <div class="checkout-flow hidden" id="checkoutFlow">
+                <div class="flow-timeline">
+                  <div class="flow-step active" id="stepIssue">
+                    <span></span>
+                    <strong>Issuing token</strong>
+                  </div>
+                  <div class="flow-step" id="stepScan">
+                    <span></span>
+                    <strong>Merchant scan</strong>
+                  </div>
+                  <div class="flow-step" id="stepSuccess">
+                    <span></span>
+                    <strong>Cashback posted</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="token-card hidden" id="tokenCard">
+                <div class="token-header">
+                  <div>
+                    <span class="token-label">Dynamic redemption token</span>
+                    <h3 id="tokenMerchant"></h3>
+                  </div>
+                  <span class="token-status" id="tokenStatus">Ready to scan</span>
+                </div>
+                <div class="qr-shell" id="qrShell">
+                  <div class="qr-grid" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <div class="wallet-pass">
+                  <div>
+                    <span class="token-label">Wallet pass</span>
+                    <strong id="passLabel">Payone instant redemption pass</strong>
+                  </div>
+                  <span class="pass-chip" id="passChip">Live</span>
+                </div>
+
+                <p id="tokenText"></p>
+
+                <div class="scan-banner hidden" id="scanBanner">
+                  <div class="scan-pulse"></div>
+                  <div>
+                    <span class="claim-label">Merchant terminal</span>
+                    <p id="scanText">Scanning wallet pass and validating token.</p>
+                  </div>
+                </div>
+
+                <div class="success-card hidden" id="successCard">
+                  <div class="success-mark">Approved</div>
+                  <h3 id="successHeadline">Cashback credited</h3>
+                  <p id="successText">
+                    Payment validated. Cashback is now back in Mia's wallet.
+                  </p>
+                  <div class="success-meta">
+                    <div>
+                      <span>Credit</span>
+                      <strong id="successValue"></strong>
+                    </div>
+                    <div>
+                      <span>Status</span>
+                      <strong>Settled instantly</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!-- end phone-frame -->
+          </section> <!-- end wallet-column -->
+
+          <!-- Minimal placeholders required by app.js -->
+          <section class="experience-grid">
+            <div class="context-column">
+              <div class="scenario-panel">
+                <div class="context-hero-display">
+                  <h1 id="heroContextTitle"></h1>
+                  <p id="heroContextText"></p>
+                  <div class="context-stats">
+                    <span>Expected Acceptance: <strong id="heroAcceptance"></strong></span>
+                    <span>Walk Time: <strong id="heroWalkTime"></strong></span>
+                  </div>
+                  <p class="config-summary" id="configText"></p>
+                </div>
+                <div class="scenario-tabs" id="scenarioTabs"></div>
+              </div>
+              <div class="context-stack" id="contextSignals"></div>
+            </div>
+
+            <aside class="merchant-column merchant-panel">
+              <div class="panel-header">
+                <span class="eyebrow">Merchant Portal</span>
+                <h3 id="merchantName"></h3>
+              </div>
+
+              <div class="strategy-group">
+                <div class="strategy-item"><small>Goal</small><div id="merchantGoal"></div></div>
+                <div class="strategy-item"><small>Trigger</small><div id="merchantTrigger"></div></div>
+                <div class="strategy-item"><small>Guardrail</small><div id="merchantGuardrail"></div></div>
+              </div>
+
+              <div class="perf-card">
+                <span>Views</span>
+                <strong id="perfViews"></strong>
+              </div>
+              <div class="perf-card">
+                <span>Acceptance</span>
+                <strong id="perfAcceptance"></strong>
+              </div>
+              <div class="perf-card">
+                <span>Redemptions</span>
+                <strong id="perfRedemption"></strong>
+              </div>
+              <div class="perf-card">
+                <span>Uplift</span>
+                <strong id="perfUplift"></strong>
+              </div>
+
+              <div class="merchant-meta">
+                <label>Creative Strategy</label>
+                <p id="generatedCampaign"></p>
+                <label>Context Summary</label>
+                <p id="merchantContextSummary"></p>
+                <label>System State</label>
+                <p id="merchantRedemptionState"></p>
+              </div>
+            </aside>
+          </section>
+
+        </section> <!-- end product-hero -->
+      </main>
+    </div> <!-- end page-shell -->
+    
+    <script src="./app.js" defer></script>
+  </body>
+</html>
